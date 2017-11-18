@@ -1,0 +1,96 @@
+
+$maincolor: rgb(42, 14, 80);              
+$Color1: #4da55a;                           
+$Color2: #0a0;                            
+$strengur: " Verkefn_5";    
+$FontSize: 1.5em;
+$boxcolor: rgb(85, 31, 157);
+           
+$padding: 1em 2em;           			     
+$fontfamily: serif;
+
+$fontmiddel: center;
+
+@mixin fyrisogn {
+    font-size: 34px;
+    color: black;
+    text-align: center;
+}
+@mixin borderbreyta($width, $color, $style){
+    border: {
+        width: $width;
+        color: $color;
+        style: $style;
+    }
+}
+body {
+	font-family: $fontfamily;
+    max-width: 60em;
+    margin:0 auto ;
+    background: $boxcolor;
+    
+    
+}
+
+h1, h2 {
+    color: $Color1;
+}
+
+header {
+  background-color: lighten($maincolor, 70%);
+  @include borderbreyta(3px, $maincolor, dotted);
+  h1 {
+  	  color: $maincolor;
+  	  text-align: center;
+  	}
+  &:hover {
+    background-color: red;
+    }
+}
+.fyrirs h1{
+    @include fyrisogn;
+}
+
+.mypara {
+    font-size: $FontSize;
+    @include borderbreyta(2px, $Color2, solid);
+    padding: $padding;
+}
+
+.mypara:after {
+    content: $strengur;
+}
+.dalkar{
+    display: flex;
+    flex-flow: row;
+}
+
+.box1,
+.box2,
+.box3{
+    @include borderbreyta(2px, black, solid);
+    flex: 1 1 0em;
+ 
+
+    h1{
+        text-align: center;
+    }
+    p{
+        margin: .5em .5em .5em .5em;
+    }
+}
+.box1{
+    background-color:darken($boxcolor, 10%)
+}
+.box2{
+    background-color:lighten($boxcolor, 30%)
+}
+.box3{
+    background-color:invert($boxcolor)
+}
+.box2,
+.box3{
+    margin-left: 1em;
+}
+
+ 
