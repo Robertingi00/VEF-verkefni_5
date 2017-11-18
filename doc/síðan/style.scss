@@ -1,0 +1,177 @@
+*, *:before, *:after {
+	box-sizing: border-box;
+}
+
+$adallitur :#3b7fa3;
+$footercolor:#003367;
+
+@mixin fyrisogn {
+    color: white;
+    text-align: center;
+}
+body{
+    background-color: $adallitur;
+    max-width: 60em;
+    line-height: 1.5em;
+    display: grid;
+    grid-template-columns: auto;
+    grid-template-areas: 
+        "header"
+        "dalkur"
+        "footer"
+        "topnav";
+}
+.Adaldalkur,
+.dalkur2,
+.dalkur3,
+footer{
+    padding: 1em;
+    
+}
+
+header{
+    grid-area: header;
+    background-color: $footercolor;
+    h1{
+        @include fyrisogn;
+    }
+        
+    
+}
+.dalkar{
+    display: grid;
+    grid-area: dalkur;
+    grid-template-columns: auto;
+    grid-template-areas: 
+        "adaldalkur"
+        "dalkur2"
+        "dalkur3";
+    h3{
+        @include fyrisogn;
+    }
+    
+
+}
+.Adaldalkur{
+    background-color: darken($adallitur, 10%);
+    grid-area: adaldalkur;
+
+}
+
+.dalkur2,
+.dalkur3{
+    background-color: darken($adallitur, 20%);
+
+}
+dalkur2{
+    grid-area: dalkur2;
+}
+dalkur2{
+    grid-area: dalkur3;
+}
+footer{
+    grid-area: footer;
+    background-color: $footercolor;
+    p{
+        text-align: center;
+    }
+}
+.topnav{
+    border: 2px solid black;
+}
+//Menu bar//
+.topmenu{
+  
+  padding: 0;
+  margin: 0;
+  list-style: none;
+
+}
+.topmenu a {
+  display:block;
+  color: #fff;
+  text-decoration:none; 
+  padding: .3em;
+  text-align: center;
+  border-bottom: 1px solid black;
+  &:hover{
+    background-color: $footercolor;
+  }
+}
+/*==== viðmið 37.5 (600px) ====*/ 
+
+@media screen and (min-width: 37.5em){
+    .dalkar{
+    display: grid;
+    grid-area: dalkur;
+    grid-template-columns: 50% 50%;
+    grid-template-areas: 
+        "adaldalkur adaldalkur"
+        "dalkur2 dalkur3";
+    }
+    
+
+}
+
+/*==== viðmið 48em (760px ====*/
+
+@media screen and (min-width: 48em){
+    body{
+    background-color: $adallitur;
+    max-width: 60em;
+    line-height: 1.5em;
+    display: grid;
+    grid-template-columns: auto;
+    grid-template-areas:         
+        "topnav"
+        "header"
+        "dalkur"
+        "footer";
+    }
+    .dalkar{
+    display: grid;
+    grid-area: dalkur;
+    grid-template-columns: 25% 50% 25%;
+    grid-template-areas: 
+        "dalkur2 adaldalkur dalkur3";
+    }
+    .topmenu{
+    display:grid;
+    grid-template-columns: auto auto auto auto;
+    }
+    .topnav{
+    justify-content: center;
+    }
+    .topmenu a{
+    padding: .4em 2em;
+    border-width: 0;
+    border-right: 1px solid black;
+    }
+    .topmenu li:first-child{
+    border-left: 1px solid black;
+    margin-left: -2px;
+    }
+    
+
+
+}
+
+/*==== viðmið 60em (960px ====*/
+
+@media screen and (min-width: 60em){
+	body{
+		max-width: 60em;
+		margin:0 auto ;
+
+	}
+	
+}
+
+/*==== viðmið 80em (1480px ====*/
+@media screen and (min-width: 80em){
+    body{
+		max-width: 80em;
+		margin: 0 auto ;
+		
+	}
+}
